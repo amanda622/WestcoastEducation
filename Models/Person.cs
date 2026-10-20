@@ -7,6 +7,7 @@ public class Person
     public required string LastName {get; set;}
     public required string Email {get; set;}
     public string? Phone {get; set;}
+    // Composition
     public required Address Address {get; set;}
     public override string ToString()
     {

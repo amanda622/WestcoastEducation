@@ -22,6 +22,7 @@ class Program
             }
         };
         Console.WriteLine(student);
+
         Course course = new()
         {
             CourseNumber = "123",
@@ -31,5 +32,44 @@ class Program
             CourseType = CourseType.Klassrum
         };
         Console.WriteLine(course);
+
+        Teacher teacher = new()
+        {
+            PersonNumber = "19771110-7798",            
+            FirstName = "Amanda",
+            LastName = "Karlson",
+            Email = "amanda.karlson@gmail.com",
+            Phone = "0705983391",
+            Address = new()
+            {
+                AddressLine = "StorGatan 12",
+                PostalCode = "421 45",
+                City = "Stockholm"
+            },
+            KnowledgeArea = "Fysik",
+
+        };
+        teacher.Courses.Add(course);
+        Console.WriteLine(teacher);
+
+        EducationLeader educationLeader = new()
+        {
+            PersonNumber = "19771110-7798",            
+            FirstName = "Torb",
+            LastName = "Gunner",
+            Email = "torb.gunner@gmail.com",
+            Phone = "0709853313",
+            Address = new()
+            {
+                AddressLine = "StorGatan 28",
+                PostalCode = "421 38",
+                City = "Goteborg"
+            },
+            KnowledgeArea = "Fysik",
+
+            EmploymentDate = new DateTime(2014,12,30),
+        };
+        Console.WriteLine(educationLeader);
+
      }
 }

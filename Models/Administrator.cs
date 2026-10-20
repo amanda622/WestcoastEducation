@@ -1,6 +1,6 @@
-﻿namespace WestcoastEducation;
+﻿namespace WestcoastEducation.Models;
 
-public class Administrator
+public class Administrator:EducationLeader
 {
 
 }
