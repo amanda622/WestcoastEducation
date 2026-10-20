@@ -1,6 +1,8 @@
-﻿namespace WestcoastEducation;
+﻿using WestcoastEducation.Models;
 
-public class Student
+namespace WestcoastEducation;
+
+public class Student:Person
 {
 
 }

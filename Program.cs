@@ -7,7 +7,7 @@ class Program
 {
     static void Main()
     {
-        Person person = new()
+        Student student = new()
         {
             PersonNumber = "19871210-8898",            
             FirstName = "Erik",
@@ -21,6 +21,7 @@ class Program
                 City = "Staden"
             }
         };
+        Console.WriteLine(student);
         Course course = new()
         {
             CourseNumber = "123",
