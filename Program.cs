@@ -80,8 +80,8 @@ class Program
 
         Course sameNumber = new()
         {
-            CourseNumber = "123",             
-            Title = "Kemi",                  
+            CourseNumber = "123",
+            Title = "Kemi",
             StartDate = new DateTime(2027, 1, 11),
             LengthInWeeks = 8,
             CourseType = CourseType.Distans
@@ -91,13 +91,51 @@ class Program
 
         Course newNumber = new()
         {
-            CourseNumber = "456",            
-            Title = "Kemi",                   
+            CourseNumber = "456",
+            Title = "Kemi",
             StartDate = new DateTime(2027, 1, 11),
             LengthInWeeks = 8,
             CourseType = CourseType.Distans
         };
         school.AddCourse(newNumber);
         school.ListCourses();
+
+        school.ListStudent();
+        school.AddStudent(student);
+        school.ListStudent();
+        Student studentSamePersonNum = new()
+        {
+            PersonNumber = "19871210-8898",
+            FirstName = "Torb",
+            LastName = "Gunner",
+            Email = "torb.gunner@gmail.com",
+            Phone = "0709853313",
+            Address = new()
+            {
+                AddressLine = "StorGatan 28",
+                PostalCode = "421 38",
+                City = "Goteborg"
+            },
+        };
+        school.AddStudent(studentSamePersonNum);
+        school.ListStudent();
+
+        Student newStudent = new()
+        {
+            PersonNumber = "19991210-1198",
+            FirstName = "Torb",
+            LastName = "Gunner",
+            Email = "torb.gunner@gmail.com",
+            Phone = "0709853313",
+            Address = new()
+            {
+                AddressLine = "StorGatan 28",
+                PostalCode = "421 38",
+                City = "Goteborg"
+            },
+        };
+        school.AddStudent(newStudent);
+        school.ListStudent();
+
     }
 }
