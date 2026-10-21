@@ -141,7 +141,6 @@ class Program
 
         school.AddTeacher(teacher);
         school.AddTeacher(educationLeader);
-        school.ListTeachers();
 
         Administrator admin = new()
         {
@@ -162,6 +161,8 @@ class Program
         };
         Console.WriteLine(admin);
         school.AddTeacher(admin);
+        school.ListTeachers();
+
 
     }
 }

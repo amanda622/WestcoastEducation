@@ -48,7 +48,7 @@ public class School
     {
         if (Students.Count == 0)
         {
-            Console.WriteLine(" Inga studenter.");
+            Console.WriteLine("Inga studenter.");
         }
         foreach (var item in Students)
         {
