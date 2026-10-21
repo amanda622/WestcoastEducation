@@ -1,6 +1,4 @@
-﻿using WestcoastEducation.Enums;
-
-namespace WestcoastEducation.Models;
+﻿namespace WestcoastEducation.Models;
 
 public class School
 {
@@ -9,14 +7,25 @@ public class School
 
     public void AddCourse(Course course)
     {
+        foreach (var item in Courses)
+        {
+            if (item.CourseNumber == course.CourseNumber)
+            {
+                Console.WriteLine("Kursen finns redan.");
+                return;
+            }
+        }
         Courses.Add(course);
     }
     public void ListCourses()
     {
-        foreach ( var item in Courses)
+        if (Courses.Count == 0)
+        {
+            Console.WriteLine("Inga kurser.");
+        }
+        foreach (var item in Courses)
         {
             Console.WriteLine(item);
         }
     }
-
 }

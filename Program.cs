@@ -9,7 +9,7 @@ class Program
     {
         Student student = new()
         {
-            PersonNumber = "19871210-8898",            
+            PersonNumber = "19871210-8898",
             FirstName = "Erik",
             LastName = "Eriksson",
             Email = "erik.eriksson@gmail.com",
@@ -27,7 +27,7 @@ class Program
         {
             CourseNumber = "123",
             Title = "Fysik",
-            StartDate = new DateTime(2026,11,2),
+            StartDate = new DateTime(2026, 11, 2),
             LengthInWeeks = 10,
             CourseType = CourseType.Klassrum
         };
@@ -35,7 +35,7 @@ class Program
 
         Teacher teacher = new()
         {
-            PersonNumber = "19771110-7798",            
+            PersonNumber = "19771110-7798",
             FirstName = "Amanda",
             LastName = "Karlson",
             Email = "amanda.karlson@gmail.com",
@@ -54,7 +54,7 @@ class Program
 
         EducationLeader educationLeader = new()
         {
-            PersonNumber = "19771110-7798",            
+            PersonNumber = "19771110-7798",
             FirstName = "Torb",
             LastName = "Gunner",
             Email = "torb.gunner@gmail.com",
@@ -67,13 +67,37 @@ class Program
             },
             KnowledgeArea = "Fysik",
 
-            EmploymentDate = new DateTime(2014,12,30),
+            EmploymentDate = new DateTime(2014, 12, 30),
         };
         Console.WriteLine(educationLeader);
 
         School school = new();
+
+        school.ListCourses();
+
         school.AddCourse(course);
         school.ListCourses();
 
-     }
+        Course sameNumber = new()
+        {
+            CourseNumber = "123",             
+            Title = "Kemi",                  
+            StartDate = new DateTime(2027, 1, 11),
+            LengthInWeeks = 8,
+            CourseType = CourseType.Distans
+        };
+        school.AddCourse(sameNumber);
+        school.ListCourses();
+
+        Course newNumber = new()
+        {
+            CourseNumber = "456",            
+            Title = "Kemi",                   
+            StartDate = new DateTime(2027, 1, 11),
+            LengthInWeeks = 8,
+            CourseType = CourseType.Distans
+        };
+        school.AddCourse(newNumber);
+        school.ListCourses();
+    }
 }
