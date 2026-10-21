@@ -137,5 +137,8 @@ class Program
         school.AddStudent(newStudent);
         school.ListStudent();
 
+        school.AddTeacher(teacher);          
+        school.AddTeacher(educationLeader);
+
     }
 }

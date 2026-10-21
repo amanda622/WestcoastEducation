@@ -5,6 +5,7 @@ public class School
     //aggregation
     public List<Course> Courses { get; set; } = [];
     public List<Student> Students { get; set; } = [];
+    public List<Teacher> Teachers {get; set;} = [];
 
     public void AddCourse(Course course)
     {
@@ -50,6 +51,31 @@ public class School
             Console.WriteLine(" Inga studenter.");
         }
         foreach (var item in Students)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
+     public void AddTeacher(Teacher teacher)
+    {
+        foreach(var item in Teachers)
+        {
+            if(item.PersonNumber == teacher.PersonNumber)
+            {
+                Console.WriteLine("Teacher finns redan.");
+                return;
+            }
+        }
+        Teachers.Add(teacher);
+
+    }
+    public void ListTeacher()
+    {
+        if (Teachers.Count == 0)
+        {
+            Console.WriteLine(" Inga teacher.");
+        }
+        foreach (var item in Teachers)
         {
             Console.WriteLine(item);
         }
