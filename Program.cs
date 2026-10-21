@@ -71,5 +71,9 @@ class Program
         };
         Console.WriteLine(educationLeader);
 
+        School school = new();
+        school.AddCourse(course);
+        school.ListCourses();
+
      }
 }
