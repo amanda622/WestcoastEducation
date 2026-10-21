@@ -49,7 +49,9 @@ class Program
             KnowledgeArea = "Fysik",
 
         };
-        teacher.Courses.Add(course);
+        teacher.AddCourse(course);
+        teacher.AddCourse(course);
+
         Console.WriteLine(teacher);
 
         EducationLeader educationLeader = new()
@@ -100,9 +102,9 @@ class Program
         school.AddCourse(newNumber);
         school.ListCourses();
 
-        school.ListStudent();
+        school.ListStudents();
         school.AddStudent(student);
-        school.ListStudent();
+        school.ListStudents();
         Student studentSamePersonNum = new()
         {
             PersonNumber = "19871210-8898",
@@ -118,7 +120,7 @@ class Program
             },
         };
         school.AddStudent(studentSamePersonNum);
-        school.ListStudent();
+        school.ListStudents();
 
         Student newStudent = new()
         {
@@ -135,10 +137,31 @@ class Program
             },
         };
         school.AddStudent(newStudent);
-        school.ListStudent();
+        school.ListStudents();
 
-        school.AddTeacher(teacher);          
+        school.AddTeacher(teacher);
         school.AddTeacher(educationLeader);
+        school.ListTeachers();
+
+        Administrator admin = new()
+        {
+            PersonNumber = "19771110-9998",
+            FirstName = "Alice",
+            LastName = "Gunner",
+            Email = "alice.gunner@gmail.com",
+            Phone = "0705553313",
+            Address = new()
+            {
+                AddressLine = "StorGatan 8",
+                PostalCode = "421 88",
+                City = "Goteborg"
+            },
+            KnowledgeArea = "Kemi",
+
+            EmploymentDate = new DateTime(2026, 10, 10),
+        };
+        Console.WriteLine(admin);
+        school.AddTeacher(admin);
 
     }
 }

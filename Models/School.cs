@@ -44,7 +44,7 @@ public class School
         Students.Add(student);
 
     }
-    public void ListStudent()
+    public void ListStudents()
     {
         if (Students.Count == 0)
         {
@@ -62,18 +62,18 @@ public class School
         {
             if(item.PersonNumber == teacher.PersonNumber)
             {
-                Console.WriteLine("Teacher finns redan.");
+                Console.WriteLine("Läraren finns redan.");
                 return;
             }
         }
         Teachers.Add(teacher);
 
     }
-    public void ListTeacher()
+    public void ListTeachers()
     {
         if (Teachers.Count == 0)
         {
-            Console.WriteLine(" Inga teacher.");
+            Console.WriteLine("Inga teacher.");
         }
         foreach (var item in Teachers)
         {
