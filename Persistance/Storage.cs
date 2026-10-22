@@ -1,12 +1,13 @@
 ﻿using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using WestcoastEducation.Interfaces;
 
 namespace WestcoastEducation.Persistance;
 
-public class Storage<T>
+public class Storage<T> : IStorage<T> where T : class
 {
-    private static readonly JsonSerializerOptions _options = new()
+    private readonly JsonSerializerOptions _options = new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
@@ -15,7 +16,7 @@ public class Storage<T>
         Converters = { new JsonStringEnumConverter() }
 
     };
-    public static List<T> Read(string path)
+    public List<T> Read(string path)
     {
         try
         {
@@ -35,7 +36,7 @@ public class Storage<T>
             throw new Exception(ex.Message);
         }
     }
-    public static void Write(List<T> data, string path)
+    public void Write(List<T> data, string path)
     {
         try
         {
@@ -48,6 +49,5 @@ public class Storage<T>
             throw new Exception(ex.Message);
         }
     }
-    
 }
 

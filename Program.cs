@@ -167,10 +167,11 @@ class Program
 
         teacher.AddCourse(newNumber);
 
+        Storage<Course> storage = new();
         string path = Environment.CurrentDirectory + "/Data/courses.json";
-        Storage<Course>.Write(school.Courses, path);
+        storage.Write(school.Courses, path);
 
-        var loadedCourses = Storage<Course>.Read(path);
+        var loadedCourses = storage.Read(path);
         foreach (var item in loadedCourses)
         {
             Console.WriteLine(item);
