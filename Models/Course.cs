@@ -1,8 +1,13 @@
 using WestcoastEducation.Enums;
+using WestcoastEducation.Interfaces;
+using System.Text.Json.Serialization;
 namespace WestcoastEducation.Models;
 
-public class Course
+public class Course : IHasId
 {
+    [JsonIgnore]
+    public string Id => CourseNumber;
+
     public required string CourseNumber { get; set; } 
     public required string Title { get; set; }
     public required int LengthInWeeks { get; set; }

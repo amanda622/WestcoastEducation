@@ -1,83 +1,46 @@
-﻿namespace WestcoastEducation.Models;
+﻿using WestcoastEducation.Interfaces;
+
+namespace WestcoastEducation.Models;
 
 public class School
 {
     //aggregation
     public List<Course> Courses { get; set; } = [];
     public List<Student> Students { get; set; } = [];
-    public List<Teacher> Teachers {get; set;} = [];
+    public List<Teacher> Teachers { get; set; } = [];
 
-    public void AddCourse(Course course)
+    private void AddItem<T>(List<T> list, T item, string duplicateMessage) where T : IHasId
     {
-        foreach (var item in Courses)
+        foreach (var existing in list)
         {
-            if (item.CourseNumber == course.CourseNumber)
+            if (existing.Id == item.Id)
             {
-                Console.WriteLine("Kursen finns redan.");
+                Console.WriteLine(duplicateMessage);
                 return;
             }
         }
-        Courses.Add(course);
+        list.Add(item);
     }
-    public void ListCourses()
+    private void ListItems<T>(List<T> list, string emptyMessage)
     {
-        if (Courses.Count == 0)
+        if (list.Count == 0)
         {
-            Console.WriteLine("Inga kurser.");
+            Console.WriteLine(emptyMessage);
+            return;
         }
-        foreach (var item in Courses)
+        foreach (var item in list)
         {
             Console.WriteLine(item);
         }
     }
 
-    public void AddStudent(Student student)
-    {
-        foreach(var item in Students)
-        {
-            if(item.PersonNumber == student.PersonNumber)
-            {
-                Console.WriteLine("Student finns redan.");
-                return;
-            }
-        }
-        Students.Add(student);
+    public void AddCourse(Course course) => AddItem(Courses, course, "Kursen finns redan.");
+    public void ListCourses() => ListItems(Courses, "Inga kurser.");
 
-    }
-    public void ListStudents()
-    {
-        if (Students.Count == 0)
-        {
-            Console.WriteLine("Inga studenter.");
-        }
-        foreach (var item in Students)
-        {
-            Console.WriteLine(item);
-        }
-    }
+    public void AddStudent(Student student) => AddItem(Students, student, "Student finns redan.");
+    public void ListStudents() => ListItems(Students, "Inga studenter.");
 
-     public void AddTeacher(Teacher teacher)
-    {
-        foreach(var item in Teachers)
-        {
-            if(item.PersonNumber == teacher.PersonNumber)
-            {
-                Console.WriteLine("Läraren finns redan.");
-                return;
-            }
-        }
-        Teachers.Add(teacher);
+    public void AddTeacher(Teacher teacher) => AddItem(Teachers, teacher, "Läraren finns redan.");
+    public void ListTeachers() => ListItems(Teachers, "Inga lärare.");
 
-    }
-    public void ListTeachers()
-    {
-        if (Teachers.Count == 0)
-        {
-            Console.WriteLine("Inga lärare.");
-        }
-        foreach (var item in Teachers)
-        {
-            Console.WriteLine(item);
-        }
-    }
 }

@@ -1,7 +1,10 @@
-﻿namespace WestcoastEducation.Models;
+﻿using WestcoastEducation.Interfaces;
 
-public class Person
+namespace WestcoastEducation.Models;
+
+public class Person : IHasId
 {
+    public string Id => PersonNumber;
     public required string PersonNumber {get; set;}    
     public required string FirstName {get; set;}
     public required string LastName {get; set;}
