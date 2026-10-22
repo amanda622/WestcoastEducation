@@ -5,7 +5,7 @@
     "lengthInWeeks": 10,
     "startDate": "2026-11-02T00:00:00",
     "endDate": "2027-01-11T00:00:00",
-    "courseType": 0
+    "courseType": "Klassrum"
   },
   {
     "courseNumber": "456",
@@ -13,6 +13,6 @@
     "lengthInWeeks": 8,
     "startDate": "2027-01-11T00:00:00",
     "endDate": "2027-03-08T00:00:00",
-    "courseType": 1
+    "courseType": "Distans"
   }
 ]

@@ -1,6 +1,6 @@
 ﻿using System.Text.Encodings.Web;
 using System.Text.Json;
-using WestcoastEducation.Models;
+using System.Text.Json.Serialization;
 
 namespace WestcoastEducation.Persistance;
 
@@ -11,7 +11,9 @@ public class Storage<T>
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
         WriteIndented = true,
-        PropertyNameCaseInsensitive = true
+        PropertyNameCaseInsensitive = true,
+        Converters = { new JsonStringEnumConverter() }
+
     };
     public static List<T> Read(string path)
     {
