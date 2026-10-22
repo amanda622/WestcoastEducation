@@ -1,4 +1,5 @@
 ﻿using WestcoastEducation.Enums;
+using WestcoastEducation.Interfaces;
 using WestcoastEducation.Models;
 using WestcoastEducation.Persistance;
 
@@ -167,7 +168,10 @@ class Program
 
         teacher.AddCourse(newNumber);
 
-        Storage<Course> storage = new();
+        // Depend on the interface, not the concrete class.
+        // To switch storage type, only the "new" on the right side needs to change.
+        IStorage<Course> storage = new Storage<Course>();
+
         string path = Environment.CurrentDirectory + "/Data/courses.json";
         storage.Write(school.Courses, path);
 

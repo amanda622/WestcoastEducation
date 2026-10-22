@@ -73,7 +73,7 @@ public class School
     {
         if (Teachers.Count == 0)
         {
-            Console.WriteLine("Inga teacher.");
+            Console.WriteLine("Inga lärare.");
         }
         foreach (var item in Teachers)
         {
