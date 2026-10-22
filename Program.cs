@@ -1,5 +1,6 @@
 ﻿using WestcoastEducation.Enums;
 using WestcoastEducation.Models;
+using WestcoastEducation.Persistance;
 
 namespace WestcoastEducation;
 
@@ -51,6 +52,7 @@ class Program
         };
         teacher.AddCourse(course);
         teacher.AddCourse(course);
+
 
         Console.WriteLine(teacher);
 
@@ -162,6 +164,19 @@ class Program
         Console.WriteLine(admin);
         school.AddTeacher(admin);
         school.ListTeachers();
+
+        teacher.AddCourse(newNumber);
+
+        string path = Environment.CurrentDirectory + "/Data/courses.json";
+        Storage<Course>.Write(school.Courses, path);
+
+        var loadedCourses = Storage<Course>.Read(path);
+        foreach (var item in loadedCourses)
+        {
+            Console.WriteLine(item);
+        }
+
+
 
 
     }
